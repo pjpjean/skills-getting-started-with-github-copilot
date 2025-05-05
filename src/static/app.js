@@ -25,6 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <div>
+            <strong>Participants:</strong>
+            <ul class="participants-list">
+              ${details.participants.map(participant => {
+                const li = document.createElement("li");
+                li.appendChild(document.createTextNode(participant));
+                return li.outerHTML;
+              }).join("")}
+            </ul>
+          </div>
         `;
 
         activitiesList.appendChild(activityCard);
